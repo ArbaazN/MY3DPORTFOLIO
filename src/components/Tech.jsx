@@ -28,16 +28,16 @@ const Tech = () => {
       </div>
 
       {/* Mobile version */}
-      <div className="flex sm:hidden mt-10 flex-wrap justify-center gap-6 bg-white p-6 rounded-2xl shadow-md">
+      <div className="flex sm:hidden mt-10 flex-wrap justify-center gap-6">
         {technologies.map((technology) => (
           <div
             key={technology.name}
-            className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-xl shadow"
+            className="w-20 h-20 flex items-center justify-center bg-white rounded-xl shadow-md"
           >
             <img
               src={technology.icon}
               alt={technology.name}
-              className="w-10 h-10 object-contain"
+              className="w-12 h-12 object-contain"
             />
           </div>
         ))}
