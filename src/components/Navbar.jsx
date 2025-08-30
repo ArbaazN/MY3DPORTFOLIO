@@ -54,7 +54,7 @@ const Navbar = () => {
                 color: "white",
               }}
             >
-              Arbaaz Nakhwa — Full Stack Portfolio
+              Full Stack Portfolio
             </span>
           </p>
 
