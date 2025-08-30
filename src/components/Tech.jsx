@@ -9,26 +9,27 @@ import { textVariant } from "../utils/motion";
 
 const Tech = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <h3 className={`${styles.sectionHeadText} text-center`}>
-          Skills.
-        </h3>
-      </motion.div>
+<>
+  <motion.div variants={textVariant()}>
+    <h3 className={`${styles.sectionHeadText} text-center`}>
+      Skills.
+    </h3>
+  </motion.div>
 
-     <div className="flex flex-row flex-wrap justify-center gap-6 flex-none">
-  {technologies.map((technology) => (
-    <div
-      className="w-20 h-20 sm:w-28 sm:h-28"
-      key={technology.name}
-    >
-      <BallCanvas icon={technology.icon} />
-    </div>
-  ))}
-</div>
+  <div className="mt-10 flex flex-row flex-wrap justify-center gap-6">
+    {technologies.map((technology) => (
+      <div
+        key={technology.name}
+        className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center"
+      >
+        <div className="w-full h-full">
+          <BallCanvas icon={technology.icon} />
+        </div>
+      </div>
+    ))}
+  </div>
+</>
 
-
-    </>
 
   );
 };
