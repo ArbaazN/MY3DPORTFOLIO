@@ -9,37 +9,41 @@ import { textVariant } from "../utils/motion";
 
 const Tech = () => {
   return (
-<>
-  <motion.div variants={textVariant()}>
-    <h3 className={`${styles.sectionHeadText} text-center`}>
-      Skills.
-    </h3>
-  </motion.div>
+    <>
+      <motion.div variants={textVariant()}>
+        <h3 className={`${styles.sectionHeadText} text-center`}>
+          Skills.
+        </h3>
+      </motion.div>
 
- <div className="mt-10 flex flex-row flex-wrap justify-center gap-6">
-  {technologies.map((technology) => (
-    <div
-      key={technology.name}
-      className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center"
-    >
-      {technology.icon ? (
-        <div className="w-full h-full">
-          <BallCanvas icon={technology.icon} />
+      {/* Desktop & Laptop version */}
+      <div className="hidden sm:flex">
+        <div className="flex flex-row flex-wrap justify-center gap-10">
+          {technologies.map((technology) => (
+            <div className="w-28 h-28" key={technology.name}>
+              <BallCanvas icon={technology.icon} />
+            </div>
+          ))}
         </div>
-      ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gray-200 text-xs text-gray-600 rounded-lg">
-          Missing
-        </div>
-      )}
-    </div>
-  ))}
-</div>
+      </div>
 
-</>
-
-
+      {/* Mobile version */}
+      <div className="flex sm:hidden mt-10 flex-wrap justify-center gap-6">
+        {technologies.map((technology) => (
+          <div
+            key={technology.name}
+            className="w-16 h-16 flex items-center justify-center bg-white/10 rounded-xl shadow-md"
+          >
+            <img
+              src={technology.icon}
+              alt={technology.name}
+              className="w-10 h-10 object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
-
 
 export default SectionWrapper(Tech, "skills");
