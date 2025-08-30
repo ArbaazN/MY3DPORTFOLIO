@@ -16,18 +16,25 @@ const Tech = () => {
     </h3>
   </motion.div>
 
-  <div className="mt-10 flex flex-row flex-wrap justify-center gap-6">
-    {technologies.map((technology) => (
-      <div
-        key={technology.name}
-        className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center"
-      >
+ <div className="mt-10 flex flex-row flex-wrap justify-center gap-6">
+  {technologies.map((technology) => (
+    <div
+      key={technology.name}
+      className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center"
+    >
+      {technology.icon ? (
         <div className="w-full h-full">
           <BallCanvas icon={technology.icon} />
         </div>
-      </div>
-    ))}
-  </div>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-200 text-xs text-gray-600 rounded-lg">
+          Missing
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
 </>
 
 
