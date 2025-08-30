@@ -16,18 +16,16 @@ const Tech = () => {
         </h3>
       </motion.div>
 
-      <div className="flex justify-center">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
-          {technologies.map((technology) => (
-            <div
-              className="w-20 h-20 sm:w-28 sm:h-28"
-              key={technology.name}
-            >
-              <BallCanvas icon={technology.icon} />
-            </div>
-          ))}
-        </div>
-      </div>
+     <div className="flex flex-row flex-wrap justify-center gap-6 flex-none">
+  {technologies.map((technology) => (
+    <div
+      className="w-20 h-20 sm:w-28 sm:h-28"
+      key={technology.name}
+    >
+      <BallCanvas icon={technology.icon} />
+    </div>
+  ))}
+</div>
 
 
     </>
