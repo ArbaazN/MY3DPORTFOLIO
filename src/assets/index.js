@@ -39,6 +39,7 @@ import laravel from "./laravel.svg";
 import portfolio from "./3dportfolio.png";
 import pglife from "./pglife.png";
 import sortingvisualiser from "./sortingvisualiser.png";
+import Hero from "./Hero.png";
 
 export {
   logo,
@@ -77,4 +78,5 @@ export {
   apiMarketLogo,
   php,
   laravel,
+  Hero,
 };
