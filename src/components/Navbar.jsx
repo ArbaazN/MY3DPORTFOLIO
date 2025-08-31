@@ -73,46 +73,51 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-8 h-8 cursor-pointer z-50"
+            className="w-8 h-8 cursor-pointer z-[60]" // force highest z-index
             onClick={() => setToggle(!toggle)}
           />
 
-          {/* Overlay */}
-          <div
-            className={`fixed top-0 right-0 w-full h-full bg-black/70 backdrop-blur-sm transition-all duration-300 z-40 ${toggle ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-              }`}
-            onClick={() => setToggle(false)}
-          />
+          {/* Overlay (click to close) */}
+          {toggle && (
+            <div
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+              onClick={() => setToggle(false)}
+            />
+          )}
 
           {/* Slide-in panel */}
           <div
             className={`fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-[#1a1a1a]/90 to-[#000]/90 shadow-2xl rounded-l-3xl p-8 flex flex-col gap-8 transform transition-transform duration-500 z-50 ${toggle ? "translate-x-0" : "translate-x-full"
               }`}
           >
-            <ul className="flex flex-col gap-6 mt-12">
-              {navLinks.map((nav, i) => (
-                <li
-                  key={nav.id}
-                  className={`text-lg font-medium cursor-pointer px-3 py-2 rounded-lg hover:bg-purple-700/40 transition-all duration-300 ${active === nav.title ? "bg-purple-700/50 text-white" : "text-secondary"
-                    }`}
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                  onClick={() => {
-                    setActive(nav.title);
-                    setToggle(false);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
+          <ul className="flex flex-col gap-6 mt-12">
+  {navLinks.map((nav, i) => (
+    <li
+      key={nav.id}
+      className={`text-lg font-medium cursor-pointer px-3 py-2 rounded-lg hover:bg-purple-700/40 transition-all duration-300 ${
+        active === nav.title ? "bg-purple-700/50 text-white" : "text-secondary"
+      }`}
+      style={{ transitionDelay: `${i * 100}ms` }}
+      onClick={() => {
+        setActive(nav.title);
+        setToggle(false);
+        const section = document.getElementById(nav.id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }}
+    >
+      {nav.title}
+    </li>
+  ))}
+</ul>
+
 
             <p className="text-sm text-gray-400 mt-auto">
               &copy; 2025 Full Stack Portfolio
             </p>
           </div>
         </div>
-
-
 
       </div>
     </nav>
